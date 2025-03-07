@@ -38,13 +38,16 @@ func main() {
 	if err != nil {
 		panic(err)
 	}
+	// 服务启动端口
+	conf := config.GlobalConfig
+	port := ":" + conf.Server.Port
 
 	// 初始化 路由
-	r := router.InitRouter(db)
+	r := router.InitRouter(db, conf)
 
 	// 创建 HTTP 服务器
 	srv := &http.Server{
-		Addr:    ":8080",
+		Addr:    port,
 		Handler: r,
 	}
 

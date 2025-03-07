@@ -1,6 +1,7 @@
 package router
 
 import (
+	"fastgin/config"
 	"fastgin/docs" // 这个包会在运行 swag init 后自动生成
 	"fastgin/internal/api"
 	"fastgin/internal/middleware"
@@ -11,7 +12,16 @@ import (
 	"gorm.io/gorm"
 )
 
-func InitRouter(db *gorm.DB) *gin.Engine {
+func InitRouter(db *gorm.DB, Conf config.Config) *gin.Engine {
+	// 设置 Gin 运行模式
+	if Conf.Server.Mode == "debug" {
+		gin.SetMode(gin.DebugMode)
+	} else if Conf.Server.Mode == "prod" {
+		gin.SetMode(gin.ReleaseMode)
+	} else {
+		gin.SetMode(gin.TestMode)
+	}
+
 	r := gin.Default()
 
 	// 注册中间件（调整顺序）

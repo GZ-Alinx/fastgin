@@ -7,18 +7,11 @@ import (
 	"github.com/spf13/viper"
 )
 
-type AWSConfig struct {
-	Region    string `mapstructure:"region"`
-	AccessKey string `mapstructure:"access_key"`
-	SecretKey string `mapstructure:"secret_key"`
-}
-
 type Config struct {
 	Server   ServerConfig
 	Database DatabaseConfig
 	JWT      JWTConfig
 	Log      LogConfig
-	AWS      AWSConfig `mapstructure:"aws"`
 }
 
 type LogConfig struct {

@@ -70,9 +70,9 @@ func InitLogger() {
 	Logger = zap.New(core, caller, development)
 
 	// 添加测试日志
-	Logger.Info("日志系统初始化成功")
-	Logger.Debug("这是一条调试日志")
-	Logger.Warn("这是一条警告日志")
+	// Logger.Info("日志系统初始化成功")
+	// Logger.Debug("这是一条调试日志")
+	// Logger.Warn("这是一条警告日志")
 }
 
 func Loggers() gin.HandlerFunc {
