@@ -1,0 +1,28 @@
+server:
+  port: "8080"
+  mode: "debug"
+
+database:
+  driver: "mysql"
+  host: "localhost"
+  port: "3306"
+  username: "root"
+  password: "adl1314520"
+  dbname: "fastgin"
+
+jwt:
+  secret: "aldjsajsdf"
+  expire: 7200
+
+log:
+  level: "debug"  # 日志级别：debug, info, warn, error
+  filename: "logs/app.log"
+  maxSize: 128    # 每个日志文件的最大尺寸，单位：MB
+  maxBackups: 30  # 保留的旧日志文件个数
+  maxAge: 7       # 保留的最大天数
+  compress: true  # 是否压缩
+
+aws:
+  region: "ap-northeast-1"
+  access_key: "your-access-key"
+  secret_key: "your-secret-key"
